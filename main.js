@@ -49,5 +49,7 @@ const result = await openai.createChatCompletion({
 
 client.on('message', message => {
     console.log(message.body);
-    gpt(message.body).then(result => message.reply(result))
+    if (message.body === "!ai") {
+        gpt(message.body).then(result => message.reply(result))
+    }
 })
